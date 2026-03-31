@@ -59,7 +59,7 @@ script:
   - task:
       description: |
         ****** NOTE: ******
-        The screen might go black for a bit when the installer starts.. DON'T PANIC! :) 
+        The screen might go blank for a bit when the installer starts.. DON'T PANIC! :) 
         It won't take long, and you can still alt-tab if needed.
       name: create_prefix
       prefix: $GAMEDIR
@@ -227,4 +227,3 @@ script:
       XInput1_3: n,b
       version: n,b
       winegstreamer: b
-    version: wine-10.16-staging-amd64-wow64

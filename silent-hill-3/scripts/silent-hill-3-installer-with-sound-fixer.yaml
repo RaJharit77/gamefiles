@@ -160,4 +160,3 @@ script:
       Dinput: n,b
       XInput1_3: n,b
       winegstreamer: b
-    version: wine-10.16-staging-amd64-wow64
