@@ -61,13 +61,9 @@ if ! command -v ffmpeg >/dev/null; then
    exit 1
 fi
 
-if [ -n "$1" ]; then
-   install_dir="$1"
-else
-   install_dir="$(steam_library)/steamapps/common/Onimusha"
-fi
+install_dir="${1:-$(steam_library)/steamapps/common/Onimusha}"
 
-if ! [ -d ${install_dir} ]; then
+if ! [ -d "${install_dir}" ]; then
    echo "Error: Could not find install dir: '${install_dir}'"
    exit 1
 fi
@@ -84,9 +80,9 @@ for fmv in *.wmv; do
       continue
    fi
    echo "Transcoding ${fmv}..."
-   ffmpeg  -v quiet -stats -i ${fmv} -filter:v fps=30 -c:v mpeg4 -b:v 20M -map 0:v -map 0:a ${fmv:0:-4}.mp4
-   mv -v ${fmv} BACKUP/
-   mv -v ${fmv:0:-4}.mp4  ${fmv}
+   ffmpeg  -v quiet -stats -i "${fmv}" -filter:v fps=30 -c:v mpeg4 -b:v 20M -map 0:v -map 0:a "${fmv:0:-4}.mp4"
+   mv -v "${fmv}" BACKUP/
+   mv -v "${fmv:0:-4}.mp4"  "${fmv}"
 done
 
 popd >/dev/null
